@@ -1,0 +1,19 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "administradores": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": false
+      }
+    },
+    "dispositivos": {
+      ".read": "auth != null && root.child('administradores').child(auth.uid).val() == true",
+      "$deviceId": {
+        ".write": "auth != null && newData.child('firebaseUid').val() == auth.uid && newData.child('androidId').val() == $deviceId",
+        ".validate": "newData.hasChildren(['modelo','androidId','firebaseUid','plataforma','estado','timestamp'])"
+      }
+    }
+  }
+}
