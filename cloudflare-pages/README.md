@@ -1,0 +1,1 @@
+Selecciona esta carpeta como Root directory de Cloudflare Pages. Completa firebase-config.js con la configuracion de la app web Firebase antes de publicar.\n
